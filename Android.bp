@@ -13,10 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// For the platform, compile everything except the carrier to phone number
-// which isn't used.
-java_defaults {
-    name: "libphonenumber-platform-defaults",
+// For platform use, builds directly against core-libart to avoid circular
+// dependencies. *NOT* for unbundled use.
+java_library_static {
+    name: "libphonenumber-platform",
+
+    // For the platform, compile everything except the carrier to phone number
+    // which isn't used.
     java_resource_dirs: [
         "libphonenumber/src",
         "geocoder/src",
@@ -28,27 +31,44 @@ java_defaults {
         "geocoder/src/**/*.java",
         "internal/prefixmapper/src/**/*.java",
     ],
-}
-
-// For platform use, builds directly against core-libart to avoid circular
-// dependencies. *NOT* for unbundled use.
-java_library_static {
-    name: "libphonenumber-platform",
-    defaults: ["libphonenumber-platform-defaults"],
-
     jarjar_rules: "jarjar-rules.txt",
 
     sdk_version: "core_current",
     java_version: "1.7",
 }
 
+
+java_defaults {
+    name: "libphonenumber-unbundled-defaults",
+    java_resource_dirs: [
+        "libphonenumber/src",
+        "carrier/src",
+        "internal/prefixmapper/src",
+    ],
+
+    srcs: [
+        "libphonenumber/src/**/*.java",
+        "carrier/src/**/*.java",
+        "internal/prefixmapper/src/**/*.java",
+    ],
+}
+
 // For unbundled use, supports gingerbread and up.
 java_library_static {
     name: "libphonenumber",
-    defaults: ["libphonenumber-platform-defaults"],
+    defaults: ["libphonenumber-unbundled-defaults"],
 
-    srcs: ["carrier/src/**/*.java"],
-    java_resource_dirs: ["carrier/src"],
+    srcs: ["geocoder/src/**/*.java"],
+    java_resource_dirs: ["geocoder/src"],
+
+    sdk_version: "9",
+    java_version: "1.7",
+}
+
+// For unbundled use - without geocoder
+java_library_static {
+    name: "libphonenumber-nogeocoder",
+    defaults: ["libphonenumber-unbundled-defaults"],
 
     sdk_version: "9",
     java_version: "1.7",
