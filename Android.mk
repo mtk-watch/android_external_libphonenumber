@@ -37,6 +37,6 @@ LOCAL_SRC_FILES := $(libphonenumber_test_files)
 LOCAL_JAVA_RESOURCE_DIRS := $(libphonenumber_test_resource_dirs)
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 LOCAL_SDK_VERSION := current
-LOCAL_STATIC_JAVA_LIBRARIES := libphonenumber legacy-android-test junit
+LOCAL_STATIC_JAVA_LIBRARIES := libphonenumber junit
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 include $(BUILD_STATIC_JAVA_LIBRARY)
