@@ -21,17 +21,16 @@ java_library_static {
     // For the platform, compile everything except the carrier to phone number
     // which isn't used.
     java_resource_dirs: [
-        "libphonenumber/src",
-        "geocoder/src",
-        "internal/prefixmapper/src",
+        "repackaged/libphonenumber/src",
+        "repackaged/geocoder/src",
+        "repackaged/internal/prefixmapper/src",
     ],
 
     srcs: [
-        "libphonenumber/src/**/*.java",
-        "geocoder/src/**/*.java",
-        "internal/prefixmapper/src/**/*.java",
+        "repackaged/libphonenumber/src/**/*.java",
+        "repackaged/geocoder/src/**/*.java",
+        "repackaged/internal/prefixmapper/src/**/*.java",
     ],
-    jarjar_rules: "jarjar-rules.txt",
 
     sdk_version: "core_current",
     java_version: "1.7",
@@ -73,4 +72,3 @@ java_library_static {
     sdk_version: "9",
     java_version: "1.7",
 }
-
