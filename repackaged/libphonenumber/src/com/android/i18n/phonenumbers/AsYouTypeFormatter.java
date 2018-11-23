@@ -266,6 +266,7 @@ public class AsYouTypeFormatter {
   /**
    * Clears the internal state of the formatter, so it can be reused.
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage
   public void clear() {
     currentOutput = "";
     accruedInput.setLength(0);
@@ -298,6 +299,7 @@ public class AsYouTypeFormatter {
    *     be shown as they are.
    * @return  the partially formatted phone number.
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage
   public String inputDigit(char nextChar) {
     currentOutput = inputDigitWithOptionToRememberPosition(nextChar, false);
     return currentOutput;
@@ -309,6 +311,7 @@ public class AsYouTypeFormatter {
    * position will be automatically adjusted if additional formatting characters are later
    * inserted/removed in front of {@code nextChar}.
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage
   public String inputDigitAndRememberPosition(char nextChar) {
     currentOutput = inputDigitWithOptionToRememberPosition(nextChar, true);
     return currentOutput;
@@ -449,6 +452,7 @@ public class AsYouTypeFormatter {
    * Returns the current position in the partially formatted phone number of the character which was
    * previously passed in as the parameter of {@link #inputDigitAndRememberPosition}.
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage
   public int getRememberedPosition() {
     if (!ableToFormat) {
       return originalPosition;
