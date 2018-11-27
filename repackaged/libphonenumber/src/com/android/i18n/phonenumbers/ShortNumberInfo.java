@@ -59,7 +59,7 @@ public class ShortNumberInfo {
   }
 
   /** Cost categories of short numbers. 
- * @hide This class is not part of the Android public SDK API*/
+   * @hide This class is not part of the Android public SDK API*/
   public enum ShortNumberCost {
     TOLL_FREE,
     STANDARD_RATE,

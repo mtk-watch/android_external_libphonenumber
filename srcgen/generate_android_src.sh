@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ -z "$ANDROID_BUILD_TOP" ]; then
-    echo "Missing environment variables. Did you run build/envsetup.sh and lunch?" 1>&2
+if [[ -z "${ANDROID_BUILD_TOP}" ]]; then
+    echo "Missing environment variables. Did you run build/envsetup.sh and lunch?" >&2
     exit 1
 fi
 
@@ -23,6 +23,8 @@ PROJECT_DIR=${ANDROID_BUILD_TOP}/external/libphonenumber
 
 cd ${ANDROID_BUILD_TOP}
 make -j15 currysrc
+
+UNSUPPORTED_APP_USAGE_FILE=${PROJECT_DIR}/srcgen/unsupported-app-usage.json
 
 function do_transform() {
   local SRC_IN_DIR=$1
@@ -38,7 +40,10 @@ function do_transform() {
   java -cp ${CLASSPATH} com.google.currysrc.aosp.RepackagingTransform \
        --source-dir ${SRC_IN_DIR} \
        --target-dir ${SRC_OUT_DIR} \
-       --package-transformation "com.google:com.android"
+       --package-transformation "com.google:com.android" \
+       --tab-size 2 \
+       --unsupported-app-usage-file ${UNSUPPORTED_APP_USAGE_FILE} \
+
 }
 
 REPACKAGED_DIR=${PROJECT_DIR}/repackaged
