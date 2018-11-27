@@ -26,7 +26,7 @@ public class NumberParseException extends Exception {
 
   /**
    * The reason that a string could not be interpreted as a phone number.
- * @hide This class is not part of the Android public SDK API
+   * @hide This class is not part of the Android public SDK API
    */
   public enum ErrorType {
     /**
@@ -68,6 +68,7 @@ public class NumberParseException extends Exception {
   /**
    * Returns the error type of the exception that has been thrown.
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage
   public ErrorType getErrorType() {
     return errorType;
   }
