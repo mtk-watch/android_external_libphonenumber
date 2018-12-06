@@ -33,7 +33,6 @@ java_library_static {
     ],
 
     no_framework_libs: true,
-    java_version: "1.7",
 }
 
 
