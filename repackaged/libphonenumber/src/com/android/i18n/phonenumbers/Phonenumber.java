@@ -38,6 +38,7 @@ public final class Phonenumber {
     /**
      * @hide This class is not part of the Android public SDK API
      */
+    @dalvik.annotation.compat.UnsupportedAppUsage(implicitMember = "values()[Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;")
     public enum CountryCodeSource {
       @dalvik.annotation.compat.UnsupportedAppUsage
       FROM_NUMBER_WITH_PLUS_SIGN,
