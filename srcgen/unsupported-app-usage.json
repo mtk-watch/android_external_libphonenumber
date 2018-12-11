@@ -88,11 +88,10 @@
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource#FROM_NUMBER_WITH_PLUS_SIGN"
   },
-  // Synthetic enum methods cannot yet be handled using annotations and so are maintained in the
-  // frameworks/base/config/hiddenapi-light-greylist.txt
-  // {
-  //   "@location": "method:com.android.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource#val2ues()"
-  // },
+  {
+    "@location": "type:com.android.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource",
+    "implicitMember": "values()[Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;"
+  },
   {
     "@location": "method:com.android.i18n.phonenumbers.Phonenumber$PhoneNumber#clearCountryCode()"
   },
@@ -144,11 +143,10 @@
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$MatchType#SHORT_NSN_MATCH"
   },
-  // Synthetic enum methods cannot yet be handled using annotations and so are maintained in the
-  // frameworks/base/config/hiddenapi-light-greylist.txt
-  // {
-  //   "@location": "method:com.android.i18n.phonenumbers.PhoneNumberUtil$MatchType#values()"
-  // },
+  {
+    "@location": "type:com.android.i18n.phonenumbers.PhoneNumberUtil$MatchType",
+    "implicitMember": "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$MatchType;"
+  },
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat#E164"
   },
@@ -161,11 +159,10 @@
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat#RFC3966"
   },
-  // Synthetic enum methods cannot yet be handled using annotations and so are maintained in the
-  // frameworks/base/config/hiddenapi-light-greylist.txt
-  // {
-  //   "@location": "method:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat#values()"
-  // },
+  {
+    "@location": "type:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat",
+    "implicitMember": "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;"
+  },
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType#FIXED_LINE"
   },
@@ -193,11 +190,10 @@
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType#UAN"
   },
-  // Synthetic enum methods cannot yet be handled using annotations and so are maintained in the
-  // frameworks/base/config/hiddenapi-light-greylist.txt
-  // {
-  //   "@location": "method:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType#values()"
-  // },
+  {
+    "@location": "type:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType",
+    "implicitMember": "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberType;"
+  },
   {
     "@location": "enumConstant:com.android.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType#VOICEMAIL"
   },
