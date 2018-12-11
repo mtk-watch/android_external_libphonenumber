@@ -394,6 +394,7 @@ public class PhoneNumberUtil {
    * use the PhoneNumber class.
    * @hide This class is not part of the Android public SDK API
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage(implicitMember = "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;")
   public enum PhoneNumberFormat {
     @dalvik.annotation.compat.UnsupportedAppUsage
     E164,
@@ -409,6 +410,7 @@ public class PhoneNumberUtil {
    * Type of phone numbers.
    * @hide This class is not part of the Android public SDK API
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage(implicitMember = "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberType;")
   public enum PhoneNumberType {
     @dalvik.annotation.compat.UnsupportedAppUsage
     FIXED_LINE,
@@ -454,6 +456,7 @@ public class PhoneNumberUtil {
    * Types of phone number matches. See detailed description beside the isNumberMatch() method.
    * @hide This class is not part of the Android public SDK API
    */
+  @dalvik.annotation.compat.UnsupportedAppUsage(implicitMember = "values()[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$MatchType;")
   public enum MatchType {
     @dalvik.annotation.compat.UnsupportedAppUsage
     NOT_A_NUMBER,
