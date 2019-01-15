@@ -46,3 +46,4 @@ do
 done
 
 ${DIR}/srcgen/generate_android_src.sh
+git add repackaged
