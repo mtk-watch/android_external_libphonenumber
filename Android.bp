@@ -71,3 +71,30 @@ java_library_static {
     sdk_version: "9",
     java_version: "1.7",
 }
+
+// Tests for unbundled use.
+// vogar --timeout 0  \
+//    --classpath out/target/common/obj/JAVA_LIBRARIES/libphonenumber-test_intermediates/classes.jack \
+//    com.google.i18n.phonenumbers
+java_library {
+    name: "libphonenumber_test",
+    srcs: [
+        "carrier/test/**/*.java",
+        "geocoder/test/**/*.java",
+        "internal/prefixmapper/test/**/*.java",
+        "libphonenumber/test/**/*.java",
+    ],
+
+    java_resource_dirs: [
+        "carrier/test",
+        "geocoder/test",
+        "libphonenumber/test",
+    ],
+
+    sdk_version: "current",
+    static_libs: [
+        "libphonenumber",
+        "junit",
+    ],
+    java_version: "1.7",
+}
