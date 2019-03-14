@@ -18,44 +18,34 @@ if [[ -z "${ANDROID_BUILD_TOP}" ]]; then
     exit 1
 fi
 
-CLASSPATH=${ANDROID_HOST_OUT}/framework/currysrc.jar
-PROJECT_DIR=${ANDROID_BUILD_TOP}/external/libphonenumber
+PROJECT_DIR=external/libphonenumber
 
-cd ${ANDROID_BUILD_TOP}
-make -j15 currysrc
+PACKAGE_TRANSFORMATIONS="\
+    com.google:com.android \
+"
 
-UNSUPPORTED_APP_USAGE_FILE=${PROJECT_DIR}/srcgen/unsupported-app-usage.json
+MODULE_DIRS="\
+    libphonenumber \
+    geocoder \
+    internal/prefixmapper \
+"
 
-function do_transform() {
-  local SRC_IN_DIR=$1
-  local SRC_OUT_DIR=$2
+SOURCE_DIRS="\
+    src \
+"
 
-  if [ ! -d $SRC_OUT_DIR ]; then
-    echo ${SRC_OUT_DIR} does not exist >&2
-    exit 1
-  fi
-  rm -rf ${SRC_OUT_DIR}
-  mkdir -p ${SRC_OUT_DIR}
+TAB_SIZE=2
 
-  java -cp ${CLASSPATH} com.google.currysrc.aosp.RepackagingTransform \
-       --source-dir ${SRC_IN_DIR} \
-       --target-dir ${SRC_OUT_DIR} \
-       --package-transformation "com.google:com.android" \
-       --tab-size 2 \
-       --unsupported-app-usage-file ${UNSUPPORTED_APP_USAGE_FILE} \
+# Repackage the project's source.
+source ${ANDROID_BUILD_TOP}/tools/currysrc/scripts/repackage-common.sh
 
-}
-
-REPACKAGED_DIR=${PROJECT_DIR}/repackaged
-for i in libphonenumber geocoder internal/prefixmapper
+for i in ${MODULE_DIRS}
 do
-  for s in src
+  for s in ${SOURCE_DIRS}
   do
     IN=${PROJECT_DIR}/$i/$s
     if [ -d $IN ]; then
       OUT=${REPACKAGED_DIR}/$i/$s
-      do_transform ${IN} ${OUT}
-
       # Copy any resources
       echo Copying resources from ${IN} to ${OUT}
       RESOURCES=$(find ${IN} -type f | egrep -v '(\.java|\/package\.html)' || true)
@@ -70,3 +60,4 @@ do
     fi
   done
 done
+
